@@ -2,8 +2,6 @@ import 'package:flutter_freedom/lib.dart';
 import 'package:path/path.dart' as p;
 import 'dart:io';
 
-//TODO: add logic for linux and macos
-
 const String mirrorFileContent = r'''
 import org.gradle.api.artifacts.dsl.RepositoryHandler
 import org.gradle.api.artifacts.repositories.MavenArtifactRepository
@@ -80,8 +78,8 @@ gradle.allprojects {
 }
 ''';
 
-Future<void> createFile() async {
-  BotToast.showLoading();
+Future<void> createFile(SetCondition condition) async {
+  condition == .manual ? BotToast.showLoading() : null;
   try {
     final userHome = Platform.environment['USERPROFILE'];
     if (userHome == null) {
@@ -99,28 +97,28 @@ Future<void> createFile() async {
         ? await mirrorFile.readAsString() == mirrorFileContent
         : false;
     if (fileExists && fileIsOK) {
-      showAlert(fileAlreadyExistText);
+      condition == .manual ? showAlert(fileAlreadyExistText) : null;
     } else if (fileExists && !fileIsOK) {
       await mirrorFile.delete();
       await mirrorFile.writeAsString(mirrorFileContent);
-      showAlert(fileChangedText);
+      condition == .manual ? showAlert(fileChangedText) : null;
     } else {
       await mirrorFile.writeAsString(mirrorFileContent);
-      showNotification(fileCreatedText);
+      condition == .manual ? showNotification(fileCreatedText) : null;
     }
   } catch (e) {
-    showError("$errorText: ${e.toString()}");
+    condition == .manual ? showError("$errorText: ${e.toString()}") : null;
     throw Exception(e.toString());
   }
-  BotToast.closeAllLoading();
+  condition == .manual ? BotToast.closeAllLoading() : null;
 }
 
-Future<void> rmFile() async {
-  BotToast.showLoading();
+Future<void> rmFile(SetCondition condition) async {
+  condition == .manual ? BotToast.showLoading() : null;
   try {
     final userHome = Platform.environment['USERPROFILE'];
     if (userHome == null) {
-      showError(userFolderNotFoundText);
+      condition == .manual ? showError(userFolderNotFoundText) : null;
       throw Exception(userFolderNotFoundText);
     }
     final gradlePath = p.join(userHome, '.gradle');
@@ -131,13 +129,13 @@ Future<void> rmFile() async {
     final mirrorFile = File(p.join(initdFolder.path, 'mirror.init.gradle.kts'));
     if (await mirrorFile.exists()) {
       await mirrorFile.delete();
-      showAlert(fileRemovedText);
+      condition == .manual ? showAlert(fileRemovedText) : null;
     } else {
-      showError(fileNotExistText);
+      condition == .manual ? showError(fileNotExistText) : null;
     }
   } catch (e) {
-    showError("$errorText: ${e.toString()}");
+    condition == .manual ? showError("$errorText: ${e.toString()}") : null;
     throw Exception(e.toString());
   }
-  BotToast.closeAllLoading();
+  condition == .manual ? BotToast.closeAllLoading() : null;
 }

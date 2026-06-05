@@ -3,6 +3,8 @@ import 'lib.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
+  await AppPrefs.init();
+
   await windowManager.ensureInitialized();
 
   WindowOptions windowOptions = const WindowOptions(

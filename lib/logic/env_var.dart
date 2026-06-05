@@ -1,9 +1,7 @@
 import 'dart:io';
 import 'package:flutter_freedom/lib.dart';
 
-//TODO: add logic for linux and macos
-
-void setEnvVar() async {
+void setEnvVar(SetCondition condition) async {
   BotToast.showLoading();
   try {
     if (selectedPubMirror == .myket) {
@@ -23,15 +21,15 @@ void setEnvVar() async {
       ]);
     }
 
-    showNotification(envCreatedText);
+    condition == .manual ? showNotification(envCreatedText) : null;
     // },
   } catch (e) {
-    showError("$errorText: ${e.toString()}");
+    condition == .manual ? showError("$errorText: ${e.toString()}") : null;
   }
-  BotToast.closeAllLoading();
+  condition == .manual ? BotToast.closeAllLoading() : null;
 }
 
-void rmEnvVar() async {
+void rmEnvVar(SetCondition condition) async {
   BotToast.showLoading();
   try {
     await Process.run('powershell', [
@@ -39,9 +37,9 @@ void rmEnvVar() async {
       '[Environment]::SetEnvironmentVariable("PUB_HOSTED_URL", "","User"); [Environment]::SetEnvironmentVariable("FLUTTER_STORAGE_BASE_URL", "","User")',
     ]);
 
-    showAlert(envRemovedText);
+    condition == .manual ? showAlert(envRemovedText) : null;
   } catch (e) {
-    showError("$errorText: ${e.toString()}");
+    condition == .manual ? showError("$errorText: ${e.toString()}") : null;
   }
-  BotToast.closeAllLoading();
+  condition == .manual ? BotToast.closeAllLoading() : null;
 }

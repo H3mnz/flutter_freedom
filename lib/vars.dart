@@ -45,6 +45,14 @@ const String gradleUnSetButtonText = 'بازگردانی فایل';
 const String gradleSetDesc =
     'بعد از کلیک بر روی دکمه زیر، فولدر پروژه فلاتر خود را انتخاب کنید. \nدقت کنید که فولدری که انتخاب میکنید همان فولدر حاوی فایل pubspec.yaml باشد.\nاین کار را برای هر پروژه یکبار انجام دهید.';
 
+// Auto Set Vars
+const String autoSetLabel = 'تنظیم تمامی میرور ها به صورت اتوماتیک';
+const String autoSetDesc =
+    'میتوانید تمامی میرور ها و تنظیمات رو با دکمه زیر به صورت اتوماتیک ست کنید. اگر مایل به انجام دستی آن هستید، روی حالت دستی کلیک کنید.';
+const String autoSetButtonText = 'تنظیم تمامی میرور ها';
+const String autoUnSetButtonText = 'حذف تمامی میرور ها';
+const String setMirror = 'تنظیم میرور ها';
+
 // Logic Vars
 
 enum SelectedPubMirror { myket, runflare, flutterIoCn }
@@ -55,6 +63,10 @@ SelectedPubMirror selectedPubMirror = SelectedPubMirror.myket;
 SelectedGradleMirror selectedGradleMirror = SelectedGradleMirror.myket;
 
 enum GradleWrapperAction { modify, unModify }
+
+enum SetCondition { auto, manual }
+
+SetCondition setCondition = .auto;
 
 // Toasts
 

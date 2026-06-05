@@ -6,6 +6,7 @@ import '../lib.dart';
 Future<void> selectAndModifyProject(
   BuildContext context,
   GradleWrapperAction action,
+  SetCondition condition,
 ) async {
   try {
     // Open folder picker
@@ -13,7 +14,7 @@ Future<void> selectAndModifyProject(
       dialogTitle: pickerDialogTitle,
       lockParentWindow: true,
     );
-    BotToast.showLoading();
+    condition == .manual ? BotToast.showLoading() : null;
 
     if (selectedDirectory == null) {
       // User canceled
@@ -28,7 +29,7 @@ Future<void> selectAndModifyProject(
     final androidFolder = Directory('${projectDir.path}\\android');
 
     if (!pubspecFile.existsSync() || !androidFolder.existsSync()) {
-      showError(notFlutterProjectText);
+      condition == .manual ? showError(notFlutterProjectText) : null;
       return;
     }
 
@@ -38,7 +39,7 @@ Future<void> selectAndModifyProject(
     );
 
     if (!gradleWrapperFile.existsSync()) {
-      showError(noGradleFileText);
+      condition == .manual ? showError(noGradleFileText) : null;
       return;
     }
 
@@ -69,10 +70,10 @@ Future<void> selectAndModifyProject(
     // Write updated content
     await gradleWrapperFile.writeAsString(content);
 
-    showNotification(envCreatedText);
+    condition == .manual ? showNotification(envCreatedText) : null;
   } catch (e) {
-    showError("$errorText: ${e.toString()}");
+    condition == .manual ? showError("$errorText: ${e.toString()}") : null;
     throw Exception(e);
   }
-  BotToast.closeAllLoading();
+  condition == .manual ? BotToast.closeAllLoading() : null;
 }
