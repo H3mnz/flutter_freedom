@@ -1,79 +1,41 @@
-import 'lib.dart';
+import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:window_manager/window_manager.dart';
+import 'providers/app_provider.dart';
+import 'app.dart';
+import 'package:package_info_plus/package_info_plus.dart';
+import 'constants/constants.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
-  await AppPrefs.init();
+  PackageInfo packageInfo = await PackageInfo.fromPlatform();
+  AppVars.appName = packageInfo.appName;
+  AppVars.packageName = packageInfo.packageName;
+  AppVars.appVersion = packageInfo.version;
+  AppVars.buildNumber = packageInfo.buildNumber;
 
   await windowManager.ensureInitialized();
-
-  WindowOptions windowOptions = const WindowOptions(
-    size: Size(500, 900),
-    minimumSize: Size(500, 900),
-    maximumSize: Size(500, 900),
-
+  const windowOptions = WindowOptions(
+    size: Size(960, 720),
+    minimumSize: Size(800, 600),
     center: true,
+    title: 'Flutter Freedom',
     backgroundColor: Colors.transparent,
-    skipTaskbar: false,
-    windowButtonVisibility: false,
     titleBarStyle: TitleBarStyle.normal,
   );
-
-  windowManager.waitUntilReadyToShow(windowOptions, () async {
-    await windowManager.setMaximizable(false);
+  await windowManager.waitUntilReadyToShow(windowOptions, () async {
     await windowManager.show();
     await windowManager.focus();
-    await windowManager.setResizable(false);
-    await windowManager.setFullScreen(false);
   });
-  runApp(const MyApp());
-}
 
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+  final provider = AppProvider();
+  await provider.init();
 
-  GlobalKey<NavigatorState>? get navigatorKey => null;
-
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      builder: BotToastInit(),
-      navigatorObservers: [BotToastNavigatorObserver()],
-      navigatorKey: navigatorKey,
-      debugShowCheckedModeBanner: false,
-      title: "Flutter Freedom",
-      theme: ThemeData(brightness: Brightness.dark, fontFamily: "IranSans"),
-      locale: Locale("fa"),
-      supportedLocales: [Locale("fa")],
-      localizationsDelegates: const [
-        GlobalMaterialLocalizations.delegate,
-        GlobalCupertinoLocalizations.delegate,
-        GlobalWidgetsLocalizations.delegate,
-      ],
-      home: Scaffold(
-        appBar: AppBar(
-          title: Text(appName),
-          centerTitle: true,
-          backgroundColor: Colors.green.shade900,
-        ),
-        floatingActionButton: FloatingInfoButton(),
-        floatingActionButtonLocation: .startFloat,
-        body: MainBody(),
-      ),
-    );
-  }
-}
-
-class FloatingInfoButton extends StatelessWidget {
-  const FloatingInfoButton({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return FloatingActionButton(
-      mini: true,
-      backgroundColor: Colors.green.shade700,
-      onPressed: () => showAbout(context),
-      child: FaIcon(FontAwesomeIcons.info),
-    );
-  }
+  runApp(
+    ChangeNotifierProvider.value(
+      value: provider,
+      child: const FlutterFreedomApp(),
+    ),
+  );
 }
