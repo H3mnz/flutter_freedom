@@ -10,6 +10,6 @@
 
 
 ## Thank you | تشکر و قدردانی
-با تشکر از تیم های <a href="https://maven.myket.ir" target="_blank">مایکت</a>، <a href="https://runflare.com/mirrors/" target="_blank">رانفلر</a>، <a href="https://flutter.tarazerp.ir/" target="_blank">تاراز</a> و <a href="https://https://devneeds.ir/" target="_blank">دونیدز</a>  بابت میرور هایی که به صورت رایگان در اختیار ما قرار دادند.
+با تشکر از تیم های <a href="https://maven.myket.ir" target="_blank">مایکت</a>، <a href="https://runflare.com/mirrors/" target="_blank">رانفلر</a>، <a href="https://flutter.tarazerp.ir/" target="_blank">تاراز</a> و <a href="https://devneeds.ir/" target="_blank">دونیدز</a>  بابت میرور هایی که به صورت رایگان در اختیار ما قرار دادند.
 
 با تشکر از کانال <a href="https://t.me/flutterstuff" target="_blank">flutterstuff</a> که آموزش تنظیم میرور gradle رو در اختیارم گذاشت.
