@@ -6,6 +6,7 @@ import 'package:flutter_freedom/generated/app_localizations.dart';
 import '../../providers/app_provider.dart';
 import '../../constants/mirrors.dart';
 
+//TODO fix folder picker on linux
 class MirrorSetupSection extends StatelessWidget {
   const MirrorSetupSection({super.key});
 
@@ -77,8 +78,9 @@ class _AutoSetupCard extends StatelessWidget {
           colors: [Color(0xFF1E3A5F), Color(0xFF1A2A4A)],
         ),
         borderRadius: BorderRadius.circular(14),
-        border:
-            Border.all(color: const Color(0xFF54C5F8).withValues(alpha: 0.3)),
+        border: Border.all(
+          color: const Color(0xFF54C5F8).withValues(alpha: 0.3),
+        ),
       ),
       child: Row(
         children: [
@@ -567,8 +569,9 @@ void _showToast(
   final isSuccess = status == OpStatus.success;
   BotToast.showSimpleNotification(
     title: _resolveMessage(messageKey, l10n),
-    backgroundColor:
-        isSuccess ? const Color(0xFF2D5A27) : const Color(0xFF5A2727),
+    backgroundColor: isSuccess
+        ? const Color(0xFF2D5A27)
+        : const Color(0xFF5A2727),
     titleStyle: const TextStyle(color: Colors.white, fontSize: 13),
     duration: const Duration(seconds: 3),
     align: Alignment.bottomCenter,

@@ -18,6 +18,16 @@ class AppLocalizationsEn extends AppLocalizations {
   String get currentOS => 'Current OS';
 
   @override
+  String get aboutDescription =>
+      'Flutter Freedom is created by Masoud Ghasemi to overcome the existing limitations for Flutter developers in Iran.\nThis app is released as OpenSource under GPL v3.0 license. Any copying and usage of it is only allowed on the condition of sharing changes for free.';
+
+  @override
+  String get telegramChannel => 'Telegram Channel';
+
+  @override
+  String get githubRepo => 'GitHub Repo';
+
+  @override
   String get sectionDownloadLinks => 'Download Links';
 
   @override
@@ -51,7 +61,7 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get stepGradleWrapperDesc =>
-      'Updates gradle-wrapper.properties in your Flutter project to use a mirror for Gradle downloads.\nNeeds to be done per Flutter project.\nOnly affects Gradle distribution downloads, not dependencies.';
+      'Updates gradle-wrapper.properties in your Flutter project to use a mirror for Gradle downloads.\nNeeds to be done per Flutter project.\nOnly affects Gradle distribution downloads, not dependencies.\nOn linux MUST have zenity installed  (sudo apt install zenity) or kdialog on KDE (sudo apt install kdialog)';
 
   @override
   String get selectMirror => 'Select Mirror';

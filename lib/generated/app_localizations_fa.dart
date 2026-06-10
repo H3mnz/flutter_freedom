@@ -18,6 +18,16 @@ class AppLocalizationsFa extends AppLocalizations {
   String get currentOS => 'سیستم عامل';
 
   @override
+  String get aboutDescription =>
+      'برنامه آزادی فلاتر توسط مسعود قاسمی، جهت رفع محدودیت های موجود در برابر برنامه نویسان فلاتر در ایران ساخته شده است.\nاین برنامه تحت لیسانس GPL v3.0 به صورت OpenSource منتشر شده. هر گونه کپی برداری و استفاده از آن فقط به شرط اشتراک تغییرات به صورت رایگان بلامانع میباشد.';
+
+  @override
+  String get telegramChannel => 'کانال تلگرام';
+
+  @override
+  String get githubRepo => 'گیت‌هاب پروژه';
+
+  @override
   String get sectionDownloadLinks => 'لینک‌های دانلود';
 
   @override
@@ -51,7 +61,7 @@ class AppLocalizationsFa extends AppLocalizations {
 
   @override
   String get stepGradleWrapperDesc =>
-      'فایل gradle-wrapper.properties پروژه فلاتر شما را برای دانلود گریدل از میرور به‌روز می‌کند.\nباید برای هر پروژه فلاتر انجام شود.\nفقط دانلودهای توزیع گریدل را تحت تأثیر قرار می‌دهد، نه وابستگی‌ها.';
+      'فایل gradle-wrapper.properties پروژه فلاتر شما را برای دانلود گریدل از میرور به‌روز می‌کند.\nباید برای هر پروژه فلاتر انجام شود.\nفقط دانلودهای توزیع گریدل را تحت تأثیر قرار می‌دهد، نه وابستگی‌ها.\nدر لینوکس باید zenity نصب شده باشد (sudo apt install zenity) یا kdialog در KDE (sudo apt install kdialog)';
 
   @override
   String get selectMirror => 'انتخاب میرور';

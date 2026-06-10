@@ -145,7 +145,7 @@ void showAbout(BuildContext context) {
     applicationVersion: AppVars.appVersion,
     children: [
       Text(
-        "برنامه آزادی فلاتر توسط مسعود قاسمی، جهت رفع محدودیت های موجود در برابر برنامه نویسان فلاتر در ایران ساخته شده است.\nاین برنامه تحت لیسانس GPL v3.0 به صورت OpenSource منتشر شده. هر گونه کپی برداری و استفاده از آن فقط به شرط اشتراک تغییرات به صورت رایگان بلامانع میباشد.",
+        AppLocalizations.of(context)!.aboutDescription,
         // "این برنامه توسط مسعود قاسمی برای تمامی برنامه نویسان فلاتر سرزمین ایران ساخته شده است. هزینه استفاده از آن دعای خیر شما دوست عزیز میباشد.",
       ),
       SizedBox(height: 10),
@@ -154,7 +154,7 @@ void showAbout(BuildContext context) {
         mainAxisAlignment: MainAxisAlignment.end,
         children: [
           Tooltip(
-            message: "گیتهاب پروژه",
+            message: AppLocalizations.of(context)!.githubRepo,
             child: IconButton(
               onPressed: () {
                 launchUrl(
@@ -171,7 +171,7 @@ void showAbout(BuildContext context) {
             ),
           ),
           Tooltip(
-            message: "کانال تلگرام",
+            message: AppLocalizations.of(context)!.telegramChannel,
             child: IconButton(
               onPressed: () {
                 launchUrl(Uri.parse("https://t.me/flutterfreedom"));

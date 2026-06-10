@@ -116,6 +116,24 @@ abstract class AppLocalizations {
   /// **'Current OS'**
   String get currentOS;
 
+  /// No description provided for @aboutDescription.
+  ///
+  /// In en, this message translates to:
+  /// **'Flutter Freedom is created by Masoud Ghasemi to overcome the existing limitations for Flutter developers in Iran.\nThis app is released as OpenSource under GPL v3.0 license. Any copying and usage of it is only allowed on the condition of sharing changes for free.'**
+  String get aboutDescription;
+
+  /// No description provided for @telegramChannel.
+  ///
+  /// In en, this message translates to:
+  /// **'Telegram Channel'**
+  String get telegramChannel;
+
+  /// No description provided for @githubRepo.
+  ///
+  /// In en, this message translates to:
+  /// **'GitHub Repo'**
+  String get githubRepo;
+
   /// No description provided for @sectionDownloadLinks.
   ///
   /// In en, this message translates to:
@@ -179,7 +197,7 @@ abstract class AppLocalizations {
   /// No description provided for @stepGradleWrapperDesc.
   ///
   /// In en, this message translates to:
-  /// **'Updates gradle-wrapper.properties in your Flutter project to use a mirror for Gradle downloads.\nNeeds to be done per Flutter project.\nOnly affects Gradle distribution downloads, not dependencies.'**
+  /// **'Updates gradle-wrapper.properties in your Flutter project to use a mirror for Gradle downloads.\nNeeds to be done per Flutter project.\nOnly affects Gradle distribution downloads, not dependencies.\nOn linux MUST have zenity installed  (sudo apt install zenity) or kdialog on KDE (sudo apt install kdialog)'**
   String get stepGradleWrapperDesc;
 
   /// No description provided for @selectMirror.
