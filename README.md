@@ -1,19 +1,15 @@
 # Flutter Freedom | آزادی فلاتر
 
 آزادی از DNS و VPN برای برنامه نویسان فلاتر در ایران
-
+با کمک برنامه آزادی فلاتر، میرور های داخلی را ست کنید و با اینترنت ملی از فلاتر استفاده کنید.
+میرور های مایکت، رانفلر، تاراز، دونیدز و میرور های چین قابل انتخاب هستند.
+همچنین لینک های داخلی دانلود Flutter SDK و Android SDK درون برنامه در دسترس هستند
 ## Installation | نصب
 
-برای نصب از صفحه releases آخرین نسخه را دانلود کنید و فایل flutter_freedom.exe را اجرا کنید.
+برای نصب از صفحه releases آخرین نسخه را دانلود کنید و فایل flutter_freedom را اجرا کنید.
 
-## Check | بررسی
-
-بعد از انجام تمامی مراحل برنامه، هنگام خروجی apk گرفتن از پروژه فلاتر خودتان، باید پیام های زیر را در ترمینال مشاهده کنید.
-
-
-<img width="677" height="308" alt="image" src="https://github.com/user-attachments/assets/366c6d06-6900-4b53-aeeb-424475cc5047" />
 
 ## Thank you | تشکر و قدردانی
-با تشکر از تیم های <a href="https://maven.myket.ir" target="_blank">مایکت</a> و <a href="https://runflare.com/mirrors/" target="_blank">رانفلر</a>  بابت میرور هایی که به صورت رایگان در اختیار ما قرار دادند.
+با تشکر از تیم های <a href="https://maven.myket.ir" target="_blank">مایکت</a>، <a href="https://runflare.com/mirrors/" target="_blank">رانفلر</a>، <a href="https://flutter.tarazerp.ir/" target="_blank">تاراز</a> و <a href="https://https://devneeds.ir/" target="_blank">دونیدز</a>  بابت میرور هایی که به صورت رایگان در اختیار ما قرار دادند.
 
 با تشکر از کانال <a href="https://t.me/flutterstuff" target="_blank">flutterstuff</a> که آموزش تنظیم میرور gradle رو در اختیارم گذاشت.
