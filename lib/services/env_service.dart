@@ -102,8 +102,8 @@ class EnvService {
 
   static Future<File> _getUnixRcFile() async {
     final home = Platform.environment['HOME'] ?? '';
-    // Prefer .zshrc on macOS (default since Catalina), .bashrc on Linux
-    if (Platform.isMacOS) {
+    final shell = Platform.environment['SHELL'] ?? '';
+    if (shell.contains('zsh')) {
       return File('$home/.zshrc');
     }
     return File('$home/.bashrc');
